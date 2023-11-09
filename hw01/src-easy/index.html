@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy CSV</title>
+    <style>
+        table, th, td {
+            margin: 0 auto;
+            border: 1px solid blue;
+            align-self: center;
+            vertical-align: middle;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <button onclick='tableToCSV()'>download CSV</button>
+    <table>
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function generateTable() {
+            const headers = ['序號', '班級', '學號', '姓名', 'GitHub', '作業一', '作業二', '作業三', '作業四', '作業五', '作業六', '作業七', '作業八',	'作業九',	'作業十'];
+            let table = d3.select('table');
+            let tr = table.select('thead').append('tr');
+            tr.selectAll('td').data(headers).enter().append('td').text(function(d) { return d; });
+            
+            let allData = [];
+            for (let i = 1; i <= 200; i ++) {
+                let data = [i.toString(), getRandomClass(), getRandomId(), getRandomChineseName(), getRandomGithub()];
+                let scores = get10RandomScores();
+                data = data.concat(scores);
+                allData.push(data);
+            }
+
+            let dataTr = table.select('tbody').selectAll('tr').data(allData).enter().append('tr');
+            dataTr.selectAll('td').data(function(d, i) { return Object.values(d); }).enter().append('td').text(function(d) { return d; })
+            
+        }
+
+        function getRandomClass() {
+            const classOptions = ['資工系', '資工所', '電資AI', '電資資安', '創新AI'];
+            return classOptions[Math.floor(Math.random()*5)];
+        }
+
+        function getRandomId() {
+            const id1Options = ["111", "112"];
+            const id2Options = ["590", "598", "C52", "C53", "C71"];
+            return id1Options[Math.floor(Math.random()*2)] + id2Options[Math.floor(Math.random()*5)] + Math.floor(Math.random()*999).toString().padStart(3, '0');
+        }
+
+        function getRandomChineseName() {
+            let name = '';
+            for (let i = 0; i < 3; i++) {
+                let word = '\\u' + Math.floor(Math.random() * (40870 - 19968) + 19968).toString(16);
+                name += (eval("'" + word + "'"));
+            }
+            return name;
+        }
+
+        function getRandomGithub() {
+            const characterOptions = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let github = '';
+            for (let i = 0; i < 10; i++) {
+                github += characterOptions[Math.floor(Math.random()*62)];
+            }
+            return github;
+        }
+
+        function getRandomScore() {
+            return Math.floor(Math.random()*10 + 1);
+        }
+
+        function get10RandomScores() {
+            let scores = [];
+            for (let i = 0; i < 10; i++) {
+                scores.push(getRandomScore().toString());
+            }
+            return scores;
+        }
+
+        function clickDownload() {
+            let csv = tableToCSV();
+        }
+
+        function tableToCSV() {
+ 
+            // Variable to store the final csv data
+            var csv_data = [];
+
+            // Get each row data
+            var rows = document.getElementsByTagName('tr');
+            for (var i = 0; i < rows.length; i++) {
+
+                // Get each column data
+                var cols = rows[i].querySelectorAll('td,th');
+
+                // Stores each csv row data
+                var csvrow = [];
+                for (var j = 0; j < cols.length; j++) {
+
+                    // Get the text data of each cell
+                    // of a row and push it to csvrow
+                    csvrow.push(cols[j].innerHTML);
+                }
+
+                // Combine each column value with comma
+                csv_data.push(csvrow.join(","));
+            }
+
+            // Combine each row data with new line character
+            csv_data = csv_data.join('\n');
+
+            // Call this function to download csv file 
+            downloadCSVFile(csv_data);
+
+        }
+
+        function downloadCSVFile(csv_data) {
+
+            // Create CSV file object and feed
+            // our csv_data into it
+            CSVFile = new Blob([csv_data], {
+                type: "text/csv"
+            });
+
+            // Create to temporary link to initiate
+            // download process
+            var temp_link = document.createElement('a');
+
+            // Download csv file
+            temp_link.download = "data.csv";
+            var url = window.URL.createObjectURL(CSVFile);
+            temp_link.href = url;
+
+            // This link should not be displayed
+            temp_link.style.display = "none";
+            document.body.appendChild(temp_link);
+
+            // Automatically click the link to
+            // trigger download
+            temp_link.click();
+            document.body.removeChild(temp_link);
+        }
+
+        generateTable();
+    </script>
+</body>
+</html>
