@@ -79,13 +79,8 @@ Plot.plot({
       x:"Constellation", 
       interval: 1, 
       fill:"Gender",
-      tip: { 
-        format: { 
-          x: false,
-          y: true,
-          constellationName: (d) => d.data.constellationName,
-        }
-      }
+      tip: true,
+      title: d => `Constellation: ${constellationMap[d.Constellation]}\nGender: ${d.Gender}`
     })),
     Plot.gridY({ interval: 1, stroke: "white", strokeOpacity: 0.5 }),
   ]
