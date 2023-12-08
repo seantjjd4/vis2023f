@@ -351,9 +351,9 @@ function _8(md){return(
 md`<h2>結論</h2>
 <h3>從上圖中，我們可以看出：
   <ul>
-    <li>工作室的藝術工作者占此問卷的多數</li>
-    <li>大多數藝術工作者採取減少包裝的行動來減少碳排放量</li>
-    <li>而美術館的藝術工作者除了減少包裝外也會節約工作場所的能源，和其他場所相較來說使用再生材料則不是他們的前三名</li>
+    <li>藝術工作者占此問卷的多數</li>
+    <li>大多藝術創作者為了追求自然美</li>
+    <li>進而拋棄的加工產品，不論在藝術的創作或包裝藝術產品上面</li>
   </ul>
 </h3>`
 )}
@@ -438,7 +438,7 @@ d3
   .scaleOrdinal()
   .domain(["工作室", "替代空間", "美術館", "減少包裝材及文宣印製", "使用無毒媒材、再生材料、廢物利用素材等", "工作場所、活動展場的節約能源"])
   //.range(d3.schemePaired)
-  .range(["#8E354A","#E16B8C","#DC9FB4","#0D5661","#33A6B8","#81C7D4"])
+  .range(["#BEC23F","#FBE251","#DC9FB4","#0D5661","#7DB9DE","#0B346E"])
   .unknown("#BEBEBE")
 )}
 
@@ -516,7 +516,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["./artist@1.csv", {url: new URL("./files/50c5f49fe0be94803e1d055aaca895517461971b40fc91cc553044dee88321c73843858f823684904e961847c7cc5d3bb60f8ecd7cdfde293dd65a61d08e1e2d.csv", import.meta.url), mimeType: "text/csv", toString}]
+    ["artist-1.csv", {url: new URL("./artist@1.csv", import.meta.url), mimeType: "text/csv", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
