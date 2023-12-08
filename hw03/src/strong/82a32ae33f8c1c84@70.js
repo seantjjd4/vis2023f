@@ -66,7 +66,7 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidat
 
   const maxValue = 42;
   const thresholds = d3.range(0, maxValue + 1);
-  const colorRange = thresholds.map(value => d3.interpolateReds(value / maxValue));
+  const colorRange = thresholds.map(value => d3.interpolateRgb("white", "green")(value / maxValue));
   const thresholdScale = d3.scaleThreshold().domain(thresholds).range(colorRange);
   
   details
