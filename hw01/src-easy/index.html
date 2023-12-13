@@ -29,7 +29,7 @@
             tr.selectAll('td').data(headers).enter().append('td').text(function(d) { return d; });
             
             let allData = [];
-            for (let i = 1; i <= 200; i ++) {
+            for (let i = 1; i <= 120; i ++) {
                 let data = [i.toString(), getRandomClass(), getRandomId(), getRandomChineseName(), getRandomGithub()];
                 let scores = get10RandomScores();
                 data = data.concat(scores);

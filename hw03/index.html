@@ -175,17 +175,29 @@
     </div>
   </div>
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty">
-      該次作業程式碼，請放在 https://github.com/<span style="color:red;">你的帳號</span>/vis2023f/hw<span style="color:red;">03</span>/src/ 檔案夾。
-    </div>
+<!-- ------------------------------------------------>
+<div class="row hw12">
+  <div class="col-md-12 twenty">
+    <h4>前往你的 Demo 網頁</h4>
   </div>
+</div>
+<!-- ------------------------------------------------>
+<div class="row hw12">
+  <div class="col-md-12 twenty">
+    <a href="https://seantjjd4.github.io/vis2023f/hw03/src/simple/planar_graph.html">https://seantjjd4.github.io/vis2023f/hw03/src/simple/</a>
+    <hr>
+    <a href="https://seantjjd4.github.io/vis2023f/hw03/src/medium/choropleth.html">https://seantjjd4.github.io/vis2023f/hw03/src/medium/</a>   
+    <hr>
+    <a href="https://seantjjd4.github.io/vis2023f/hw03/src/strong/">https://seantjjd4.github.io/vis2023f/hw03/src/strong/</a>
+    </div>
+</div>
+
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。
+      
+這次的經驗對我在Observable和D3.js上有了一些初步的了解，開始有能力做些微小的操作。但當我試著自己打造Choropleth圖時，碰到了不小的挑戰。我能夠修改現成的程式碼，但當我需要開始自己構思時，遇到了困難。這次的挑戰讓我深刻明白到技術需要不斷地精進。即使我了解了工具的使用方式，但要自己啟動大腦去設計，還需要更多的實戰和練習。我覺得需要更多時間去鞏固所學，並在實踐中進一步提升自己的能力。
     </div>
   </div>
 
@@ -200,33 +212,72 @@
           <th>分項描述</th>
         </tr>
         <tr>
-          <td rowspan="7" id="myTotal"></td>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox1"></td>
-          <td id='m1'>2</td>
-          <td>Simple baseline - 描述、描述、描述</td>
+          <td rowspan="0" id="myTotal"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
+          <td id='m1'>1</td>
+          <td>Simple baseline-1 - 播放自己的參訪路徑</td>
         </tr>
+
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
-          <td id='m2'>6</td>
-          <td>Medium baseline - 描述、描述、描述 </td>
+          <td id='m2'>2</td>
+          <td>Simple baseline-2 - 計算自己的移動距離/卡路里</td>
         </tr>
+        
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox3"></td>
-          <td id='m3'>2</td>
-          <td>Strong baseline - 描述、描述、描述 </td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
+          <td id='m3'>3</td>
+          <td>Medium baseline - 美術館樓層平面圖分區(造訪頻率)</td>
         </tr>
+        
+        <tr>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
+          <td id='m4'>4</td>
+          <td>Strong baseline - 建立課程班上學生居住縣市人數的 Choropleth</td>
+        </tr>
+
       </table>
+
     </div>
   </div>
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <video id="video1" style="width:100%;max-width:100%;" controls="">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-      </video>
+        <h4>Simple baseline</h4>
     </div>
   </div>
+  <div class="row hw12">
+    <div class="col-md-12 twenty">
+      <iframe width="100%" height="500" frameborder="0" style="background-color: #FFFFFF" src="./src/simple/planar_graph.html"></iframe>
+    </div>
+  </div>
+  
+  <!-- ------------------------------------------------>
+  <div class="row hw12">
+    <div class="col-md-12 twenty">
+        <h4>Medium baseline</h4>
+    </div>
+  </div>
+  <div class="row hw12">
+    <div class="col-md-12 twenty">
+      <iframe width="100%" height="500" frameborder="0" style="background-color: #FFFFFF" src="./src/medium/choropleth.html"></iframe>
+    </div>
+  </div>
+
+  <!-- ------------------------------------------------>
+  <div class="row hw12">
+    <div class="col-md-12 twenty">
+        <h4>Strong baseline - 建立課程班上學生居住縣市人數的 Choropleth</h4>
+    </div>
+  </div>
+  <div class="row hw12">
+    <div class="col-md-12 twenty">
+      <iframe width="100%" height="500" frameborder="0" style="background-color: #FFFFFF"
+        src="https://observablehq.com/embed/82a32ae33f8c1c84@70?cell=*"></iframe>
+    </div>
+  </div>
+
 
   <!-- ------------------------------------------------>
 
@@ -245,9 +296,6 @@
   d3.select("#myCheckbox2").on("change",update);
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
-  d3.select("#myCheckbox5").on("change",update);
-  d3.select("#myCheckbox6").on("change",update);
-  d3.select("#myCheckbox7").on("change",update);
 
   update();
   
@@ -267,8 +315,12 @@
       score += parseInt(d3.select('#m3').html());   
     }
 
+    if (d3.select("#myCheckbox4").property("checked")){
+      score += parseInt(d3.select('#m4').html());
+    }
     d3.select("#myTotal").html(score);    
   }
+
 </script>
 
 </body>

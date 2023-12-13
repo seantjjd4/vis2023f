@@ -1,0 +1,14 @@
+{
+  "name": "da10dee5d9241e83",
+  "main": "da10dee5d9241e83@19.js",
+  "version": "19.0.0",
+  "homepage": "https://observablehq.com/d/da10dee5d9241e83",
+  "author": {
+    "name": "tjjd4's Workspace",
+    "url": "https://observablehq.com/@tjjd4-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}

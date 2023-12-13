@@ -179,7 +179,7 @@
         .attr("width",  function(d, i) { return (i + 1) * 60; })
         .attr("height", function(d, i) { return (i + 1) * 60; });
 
-        d3.text("./data.csv", function (data) {
+        d3.text("../data.csv", function (data) {
 
             //var parsedCSV = d3.csv.parseRows(data);
             parsedCSV = d3.csv.parseRows(data);
